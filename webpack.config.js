@@ -3,10 +3,15 @@ const path = require('path');
 module.exports = {
     mode:'development',//给自己看的。production发布，
     entry: './src/index.js',
+    devtool: 'inline-source-map',
+    devServer: {
+        static: './dist',
+    },
     output: {
 
-        filename: 'index.[contenthash].js',//文件名和内容一一对应，http缓存更新
+        filename: 'index.[hash].js',//文件名和内容一一对应，http缓存更新
     },
+
     plugins: [new HtmlWebpackPlugin(
         {
             title: '彭于晏',
